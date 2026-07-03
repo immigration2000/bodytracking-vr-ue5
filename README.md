@@ -44,8 +44,11 @@
 **VR 씬 환경 — Eris Project**
 ![scene](screenshots/scene.png)
 
-**핸드 트래킹 인터랙션 (In-VR)**
-![hand tracking](screenshots/hand-tracking.gif)
+**핸드 트래킹 인터랙션 (In-VR) — ①**
+![hand tracking 1](screenshots/hand-tracking-1.gif)
+
+**핸드 트래킹 인터랙션 (In-VR) — ②**
+![hand tracking 2](screenshots/hand-tracking-2.gif)
 
 **VR 시스템 로직 — Blueprint (MotionControllerPawn)**
 ![blueprint](screenshots/blueprint.gif)

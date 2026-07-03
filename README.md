@@ -50,6 +50,9 @@
 **핸드 트래킹 인터랙션 (In-VR) — ②**
 ![hand tracking 2](screenshots/hand-tracking-2.gif)
 
+**핸드 트래킹 인터랙션 (In-VR) — ③**
+![hand tracking 3](screenshots/hand-tracking-3.gif)
+
 **VR 시스템 로직 — Blueprint (MotionControllerPawn)**
 ![blueprint](screenshots/blueprint.gif)
 

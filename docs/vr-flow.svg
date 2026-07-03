@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="300" viewBox="0 0 980 300" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5A45FF"/>
+    </marker>
+    <marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3E477A"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="300" rx="10" fill="#0E1128"/>
+
+  <text x="34" y="46" fill="#E6E9F5" font-size="18" font-weight="600">VR Hand-Tracking Interaction Pipeline</text>
+  <text x="34" y="70" fill="#8A93B8" font-size="13">OpenXR 입력 → 손 해석 → Grab 판정 → 월드 반영 (매 프레임 갱신)</text>
+
+  <!-- box 1 -->
+  <rect x="34" y="104" width="190" height="86" rx="9" fill="#161B34" stroke="#2E3860" stroke-width="1.4"/>
+  <text x="129" y="140" fill="#E6E9F5" font-size="15" font-weight="600" text-anchor="middle">OpenXR Input</text>
+  <text x="129" y="163" fill="#9AA3C8" font-size="12" text-anchor="middle">controller · hand pose</text>
+
+  <!-- box 2 -->
+  <rect x="274" y="104" width="190" height="86" rx="9" fill="#161B34" stroke="#2E3860" stroke-width="1.4"/>
+  <text x="369" y="134" fill="#E6E9F5" font-size="14.5" font-weight="600" text-anchor="middle">MotionControllerPawn</text>
+  <text x="369" y="156" fill="#9AA3C8" font-size="12" text-anchor="middle">L / R hand resolve</text>
+  <text x="369" y="173" fill="#9AA3C8" font-size="12" text-anchor="middle">dynamic hand spawn</text>
+
+  <!-- box 3 -->
+  <rect x="514" y="104" width="190" height="86" rx="9" fill="#161B34" stroke="#2E3860" stroke-width="1.4"/>
+  <text x="609" y="140" fill="#E6E9F5" font-size="15" font-weight="600" text-anchor="middle">Grab Resolve</text>
+  <text x="609" y="163" fill="#9AA3C8" font-size="12" text-anchor="middle">overlap · grab / release</text>
+
+  <!-- box 4 -->
+  <rect x="754" y="104" width="190" height="86" rx="9" fill="#1B2247" stroke="#4A57A0" stroke-width="1.4"/>
+  <text x="849" y="140" fill="#E6E9F5" font-size="15" font-weight="600" text-anchor="middle">World Update</text>
+  <text x="849" y="163" fill="#9AA3C8" font-size="12" text-anchor="middle">actor transform · physics</text>
+
+  <!-- arrows between boxes -->
+  <line x1="224" y1="147" x2="270" y2="147" stroke="#5A45FF" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="464" y1="147" x2="510" y2="147" stroke="#5A45FF" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="704" y1="147" x2="750" y2="147" stroke="#5A45FF" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- calibration lane feeding the pawn -->
+  <rect x="274" y="226" width="430" height="50" rx="9" fill="#12162B" stroke="#242C4E" stroke-width="1.2"/>
+  <text x="294" y="249" fill="#C7CCE6" font-size="13" font-weight="600">DefaultPlayerHeight Calibration</text>
+  <text x="294" y="267" fill="#8A93B8" font-size="12">Vive · Oculus · PSVR — per-headset room-scale offset</text>
+  <line x1="369" y1="226" x2="369" y2="194" stroke="#3E477A" stroke-width="1.6" marker-end="url(#ah2)"/>
+</svg>

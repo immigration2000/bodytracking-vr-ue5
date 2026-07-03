@@ -1,107 +1,70 @@
-<!-- Portfolio showcase — media only. Source code is not included in this repository. -->
+# Eris Project — VR Body-Tracking Experience
 
-<h1 align="center">Eris Project — VR Body-Tracking Experience</h1>
-<p align="center"><b>Room-scale VR built in Unreal Engine 5.7 with real-time full-body & hand tracking.</b><br>
-<sub>UE 5.7 기반 룸스케일 VR · 실시간 풀바디·핸드 트래킹 · OpenXR / Meta Quest</sub></p>
+> Unreal Engine 5.7 · Meta Quest · OpenXR
+> HMD 환경에서 실시간 풀바디·핸드 트래킹으로 오브젝트를 잡고 조작하는 룸스케일 VR 경험입니다.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Unreal_Engine-5.7-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white">
-  <img src="https://img.shields.io/badge/Blueprints-Visual_Scripting-1C1C1C?style=for-the-badge&logo=unrealengine&logoColor=white">
-  <img src="https://img.shields.io/badge/OpenXR-VR-2C2C2C?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Meta_Quest-Hand_Tracking-0467DF?style=for-the-badge&logo=meta&logoColor=white">
-  <img src="https://img.shields.io/badge/Room--Scale-VR-5A45FF?style=for-the-badge">
-</p>
+## 프로젝트 개요
 
-<p align="center">
-  <img src="media/vr-hand-tracking.gif" alt="Real-time VR hand tracking — grabbing objects in a stylized night-water world" width="88%">
-  <br><em>Real-time hand tracking — bare-hand grab interaction in room-scale VR</em>
-</p>
+플레이어가 HMD를 착용하고 트래킹된 아바타로 가상 공간에 들어가, **맨손·모션 컨트롤러로 오브젝트를 잡고 조작**하는 룸스케일 VR 경험입니다. 달빛이 비치는 스타일라이즈드 물의 세계("Eris Project")를 무대로, **실시간 풀바디·핸드 트래킹**과 반사 수면·다이나믹 스카이를 구현했습니다.
 
----
+## 기술 스택
 
-## ⭐ Highlights
-
-- 🕹️ **Real-time hand & body tracking** — bare-hand gestures and motion controllers drive
-  natural interaction (grab, throw, manipulate) on Meta Quest via OpenXR.
-- 🌌 **Atmospheric real-time world** — reflective water, dynamic night sky, and volumetric
-  lighting create a striking, immersive stage.
-- 🧩 **Blueprint-engineered VR systems** — motion-controller pawn, hand-tracking, grab
-  mechanics, and cross-platform player-height calibration (Vive / Oculus / PSVR).
-
-<sub>핸드·바디 트래킹 · 실시간 몰입형 월드 · 블루프린트 VR 시스템</sub>
+- **엔진**: Unreal Engine 5.7 (Blueprint)
+- **VR**: OpenXR, Meta Quest (Oculus), 룸스케일
+- **트래킹**: 풀바디 + 핸드 트래킹, 모션 컨트롤러
+- **입력**: Enhanced Input, 핸드·컨트롤러 Pawn
+- **렌더링**: 실시간 반사 수면, 다이나믹 나이트 스카이, 스타일라이즈드 라이팅
+- **UI**: UMG 커스텀 위젯
 
 ---
 
-## 🛠️ Tech Stack
+## 담당 구현
 
-| Area | Details |
-|---|---|
-| **Engine** | Unreal Engine 5.7.4 |
-| **XR** | OpenXR · Meta Quest (Oculus) · room-scale |
-| **Tracking** | Full-body + hand tracking, motion controllers |
-| **Scripting** | Blueprints (visual scripting) |
-| **Input** | Enhanced Input, hand-tracking & motion-controller pawns |
-| **Rendering** | Real-time reflective water, dynamic sky, stylized lighting |
+### 1. VR 인터랙션 Pawn (MotionControllerPawn)
+- VR 오리진 → 카메라 리그 구성 및 룸스케일 트래킹
+- 좌·우 컨트롤러 및 핸드 트래킹 해석, 동적 핸드 스폰
+- Grab / Release 로직으로 오브젝트 잡기·놓기 처리
+- 헤드셋별 **DefaultPlayerHeight** 보정 (Vive / Oculus / PSVR)
 
----
+### 2. 핸드 트래킹 상호작용
+- 맨손 제스처와 모션 컨트롤러 입력으로 오브젝트를 잡고 이동·조작
+- 오버랩 판정 기반 Grab 대상 결정 및 트랜스폼 동기화
 
-## 🧠 Engineering — Under the Hood
+### 3. 실시간 환경 & 렌더링
+- 반사 수면, 다이나믹 나이트 스카이, 발광 오브젝트로 몰입형 무대 구성
+- 스타일라이즈드 라이팅으로 분위기 연출
 
-VR interaction is driven by a **MotionControllerPawn** Blueprint: a `VROrigin → Camera`
-rig, per-hand controller & hand-tracking resolution, dynamic hand spawning, grab/release
-logic, and a `DefaultPlayerHeight` calibration path for different headsets.
-
-VR 상호작용은 **MotionControllerPawn** 블루프린트로 구동됩니다 — VR 오리진/카메라 리그, 좌·우 컨트롤러
-및 핸드 트래킹 처리, 동적 핸드 스폰, Grab/Release 로직, 헤드셋별 플레이어 높이 보정을 포함합니다.
-
-<p align="center">
-  <img src="media/blueprint-vr-systems.gif" alt="Unreal Blueprint EventGraph — VR motion controller & hand-tracking systems" width="92%">
-  <br><em>MotionControllerPawn EventGraph — hand-tracking & grab systems in Blueprints</em>
-</p>
+### 4. UI 시스템
+- UMG 기반 커스텀 위젯으로 인게임 인터랙션 UI 구성
 
 ---
 
-## 🌌 The World
+## 개발 화면 (Unreal Editor)
 
-<p align="center">
-  <img src="media/vr-nightworld-tree.png" alt="Glowing tree over reflective black water" width="49%">
-  <img src="media/vr-nightworld-water.png" alt="Wide reflective night-water environment" width="49%">
-</p>
+**VR 씬 환경 — Eris Project**
+![scene](screenshots/scene.png)
 
-A moonlit water world — a luminous centerpiece tree, drifting platforms, and mirror-still
-water, all rendered in real time for VR (달빛의 물의 세계 · 발광 오브젝트 · 실시간 반사).
+**핸드 트래킹 인터랙션 (In-VR)**
+![hand tracking](screenshots/hand-tracking.gif)
 
----
+**VR 시스템 로직 — Blueprint (MotionControllerPawn)**
+![blueprint](screenshots/blueprint.gif)
 
-## 🎬 Demo Videos
+**월드 — 나이트 워터 환경**
+![world](screenshots/world-tree.png)
 
-| | |
-|:--:|:--:|
-| [<img src="media/ue-editor-scene.png" width="380">](media/ue-editor-gameplay.mp4) | [<img src="media/blueprint-motioncontroller.png" width="380">](media/ue-blueprint-vr-systems.mp4) |
-| **Editor & VR gameplay** — scene building + hand-tracking interaction | **Blueprint systems** — VR pawn & hand-tracking graphs |
+## 기술 상세 — VR 핸드 트래킹 인터랙션 파이프라인
 
-<sub>Click a thumbnail to play the full video on GitHub.</sub>
+![vr flow](docs/vr-flow.svg)
 
----
+- **입력 수집**: OpenXR 컨트롤러 / 핸드 트래킹 포즈 취득
+- **손 해석**: 좌·우 손 결정 및 동적 핸드 스폰
+- **Grab 판정**: 오버랩 검사 → Grab / Release 상태 전환
+- **월드 반영**: 잡은 액터의 트랜스폼·물리를 매 프레임 동기화
+- **헤드셋 보정**: `DefaultPlayerHeight`로 Vive / Oculus / PSVR 룸스케일 오프셋 보정
 
-## 👤 My Role
-
-Solo developer — designed and built the experience end to end:
-
-- **VR/XR development** — OpenXR setup, Meta Quest hand & body tracking, room-scale pawn.
-- **Blueprint systems** — motion-controller pawn, grab mechanics, cross-headset calibration.
-- **Real-time art & lighting** — reflective water, dynamic sky, stylized night mood.
-
-<sub>1인 개발 · VR/XR · 블루프린트 시스템 · 실시간 아트/라이팅</sub>
+전체 영상: [에디터 & VR 게임플레이](videos/editor-gameplay.mp4) · [블루프린트 시스템](videos/blueprint-systems.mp4)
 
 ---
 
-## 📌 Notes
-
-- This repository is a **portfolio showcase** — media and results only.
-  **Project source code is not included.** (본 저장소는 포트폴리오 쇼케이스이며 프로젝트 소스는 비공개입니다.)
-- Captured on Unreal Engine 5.7.4, OpenXR (Oculus) runtime.
-
----
-
-<p align="center"><sub>© 2026 immigration2000 · Built with Unreal Engine 5.7</sub></p>
+*개인 포트폴리오 목적의 기술 설명 저장소입니다. 프로젝트 소스 코드는 포함하지 않습니다.*

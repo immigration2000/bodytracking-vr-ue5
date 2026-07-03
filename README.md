@@ -6,11 +6,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Unreal_Engine-5.7-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white">
-  <img src="https://img.shields.io/badge/C%2B%2B-Plugin_Build-00599C?style=for-the-badge&logo=cplusplus&logoColor=white">
   <img src="https://img.shields.io/badge/Blueprints-Visual_Scripting-1C1C1C?style=for-the-badge&logo=unrealengine&logoColor=white">
   <img src="https://img.shields.io/badge/OpenXR-VR-2C2C2C?style=for-the-badge">
   <img src="https://img.shields.io/badge/Meta_Quest-Hand_Tracking-0467DF?style=for-the-badge&logo=meta&logoColor=white">
-  <img src="https://img.shields.io/badge/AI--Assisted-MCP_Workflow-5A45FF?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Room--Scale-VR-5A45FF?style=for-the-badge">
 </p>
 
 <p align="center">
@@ -28,11 +27,8 @@
   lighting create a striking, immersive stage.
 - 🧩 **Blueprint-engineered VR systems** — motion-controller pawn, hand-tracking, grab
   mechanics, and cross-platform player-height calibration (Vive / Oculus / PSVR).
-- ⚙️ **Built a C++ MCP plugin from source** — compiled and integrated the community
-  **VibeUE** MCP server for an AI-in-the-editor development workflow (UE 5.7 has no
-  official MCP).
 
-<sub>핸드·바디 트래킹 · 실시간 몰입형 월드 · 블루프린트 VR 시스템 · C++ MCP 플러그인 소스 빌드/통합</sub>
+<sub>핸드·바디 트래킹 · 실시간 몰입형 월드 · 블루프린트 VR 시스템</sub>
 
 ---
 
@@ -43,10 +39,9 @@
 | **Engine** | Unreal Engine 5.7.4 |
 | **XR** | OpenXR · Meta Quest (Oculus) · room-scale |
 | **Tracking** | Full-body + hand tracking, motion controllers |
-| **Scripting** | Blueprints (visual scripting) · C++ (plugin build) |
+| **Scripting** | Blueprints (visual scripting) |
 | **Input** | Enhanced Input, hand-tracking & motion-controller pawns |
 | **Rendering** | Real-time reflective water, dynamic sky, stylized lighting |
-| **Tooling** | AI-assisted authoring via **VibeUE MCP** (`:8088`) |
 
 ---
 
@@ -78,31 +73,12 @@ water, all rendered in real time for VR (달빛의 물의 세계 · 발광 오�
 
 ---
 
-## 🤖 AI-Assisted Development
-
-Unreal Engine 5.7 ships **no official MCP server**, so I compiled the community **VibeUE**
-plugin from source (the `5-7` branch) and connected it to an AI client over MCP
-(`http://127.0.0.1:8088/mcp`). This enabled blueprint / asset / level authoring — and
-in-viewport screenshot review — directly from natural-language prompts.
-
-UE 5.7엔 공식 MCP가 없어, 커뮤니티 플러그인 **VibeUE**를 소스 빌드(`5-7` 브랜치)해 MCP로 AI 클라이언트와
-연결했습니다. 블루프린트·에셋·레벨 작업과 뷰포트 스크린샷 검증을 자연어 지시로 수행하는 워크플로우입니다.
-
-<p align="center">
-  <a href="media/ue-editor-mcp-workflow.mp4">
-    <img src="media/ue-editor-vibeue-mcp.png" alt="UE 5.7 editor with VibeUE MCP connected" width="88%">
-  </a>
-  <br><em>▶ UE 5.7 editor with VibeUE MCP connected — click to watch</em>
-</p>
-
----
-
 ## 🎬 Demo Videos
 
 | | |
 |:--:|:--:|
-| [<img src="media/ue-editor-vibeue-mcp.png" width="380">](media/ue-editor-mcp-workflow.mp4) | [<img src="media/blueprint-motioncontroller.png" width="380">](media/ue-blueprint-vr-systems.mp4) |
-| **Editor & MCP workflow** — scene building + hand-tracking gameplay | **Blueprint systems** — VR pawn & hand-tracking graphs |
+| [<img src="media/ue-editor-scene.png" width="380">](media/ue-editor-gameplay.mp4) | [<img src="media/blueprint-motioncontroller.png" width="380">](media/ue-blueprint-vr-systems.mp4) |
+| **Editor & VR gameplay** — scene building + hand-tracking interaction | **Blueprint systems** — VR pawn & hand-tracking graphs |
 
 <sub>Click a thumbnail to play the full video on GitHub.</sub>
 
@@ -115,10 +91,8 @@ Solo developer — designed and built the experience end to end:
 - **VR/XR development** — OpenXR setup, Meta Quest hand & body tracking, room-scale pawn.
 - **Blueprint systems** — motion-controller pawn, grab mechanics, cross-headset calibration.
 - **Real-time art & lighting** — reflective water, dynamic sky, stylized night mood.
-- **Tooling & pipeline** — built a C++ UE plugin from source and integrated an AI/MCP
-  authoring workflow to accelerate iteration.
 
-<sub>1인 개발 · VR/XR · 블루프린트 시스템 · 실시간 아트/라이팅 · C++ 플러그인 빌드 및 AI 파이프라인 통합</sub>
+<sub>1인 개발 · VR/XR · 블루프린트 시스템 · 실시간 아트/라이팅</sub>
 
 ---
 
